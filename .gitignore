@@ -16,3 +16,5 @@
 *.pt
 *.h5
 *.model
+*.DS_Store
+latency.csv

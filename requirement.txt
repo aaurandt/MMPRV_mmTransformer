@@ -1,2 +1,16 @@
 addict
 yapf
+tqdm
+pandas
+matplotlib
+latex
+shapely
+descartes
+opencv-python
+imageio
+scipy
+omegaconf
+colour
+scikit-learn
+pickle5
+adjustText

@@ -78,12 +78,12 @@ train_dataset.update(dict(
 val_dataset= deepcopy(dataset)
 val_dataset.update(dict(
         type= "STFDataset",
-        batch_size= 32,
+        batch_size= 16,
         shuffle= False,
         Providing_GT= True,
         lane_length= 10,
         dataset_path= './data/val',
-        processed_data_path= './interm_data/argoverse_info_val.pkl',
-        processed_maps_path='./interm_data/map.pkl'
+        processed_data_path= './interm_data',
+        processed_maps_path='./interm_data'
         )
     )

@@ -32,7 +32,8 @@ def save_checkpoint(checkpoint_dir, model, optimizer, MR=1.0):
 
 
 def load_checkpoint(checkpoint_path, model, optimizer=None):
-    state = torch.load(checkpoint_path)
+    
+    state = torch.load(checkpoint_path) if torch.cuda.is_available() else torch.load(checkpoint_path, map_location=torch.device('cpu'))
     model.load_state_dict(state['state_dict'])
     print('model loaded from %s' % checkpoint_path)
     return model
