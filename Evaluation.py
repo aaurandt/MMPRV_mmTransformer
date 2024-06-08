@@ -83,14 +83,15 @@ if __name__ == "__main__":
                 t = time.time()
                 out = model(data)
                 latencywriter.writerow({time.time() - t})
-                format_results(data, out) #incrementally populated
+                format_results(data, out) # incrementally populated
 
+    # Output results to csv files
     dir = os.path.join('./data/results/', args.vehicle)
     if not os.path.exists(dir):
         os.makedirs(dir)
     for key, value in format_results.results['forecasted_trajectories'].items():
         with open(os.path.join(dir, key+'.csv'), 'w', newline='') as csvfile:
-            temp = str(val_dataset.get_data(key)["NORM_CENTER"][0]) + "," + str(val_dataset.get_data(key)["NORM_CENTER"][1])+",|"
+            temp = str(float(val_dataset.get_data(key)["NORM_CENTER"][0])) + "," + str(float(val_dataset.get_data(key)["NORM_CENTER"][1]))+",|"
             for i in range(len(value)): #6
                 for j in range(0,len(value[0])): #30
                     temp = temp + "," + str(value[i][j][0]) + "," + str(value[i][j][1])

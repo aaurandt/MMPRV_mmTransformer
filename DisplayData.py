@@ -18,15 +18,21 @@ av_results_dir = './data/results/AV'
 
 afl = ArgoverseForecastingLoader(root_dir)
 
-#set csv_filename to desired scenario
+# set csv_filename to desired scenario
 csv_filename = '14986'
-(x_agent_start, y_agent_start, x_av_start, y_av_start) = viz_sequence(afl.get(os.path.join(root_dir, csv_filename+".csv")).seq_df, show=False)
+viz_sequence(afl.get(os.path.join(root_dir, csv_filename+".csv")).seq_df, show=False)
 with open(os.path.join(agent_results_dir, csv_filename + ".csv"), 'r') as f:
     reader = csv.reader(f)
     agent_data_temp = list(reader)
 with open(os.path.join(av_results_dir, csv_filename + ".csv"), 'r') as f:
     reader = csv.reader(f)
     av_data_temp = list(reader)
+
+x_agent_start = float(agent_data_temp[0][0])
+y_agent_start = float(agent_data_temp[0][1])
+x_av_start = float(av_data_temp[0][0])
+y_av_start = float(av_data_temp[0][1])
+
 x_agent_end_data = []
 y_agent_end_data = []
 x_av_end_data = []

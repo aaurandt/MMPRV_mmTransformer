@@ -2,7 +2,7 @@
 
 ## Introduction
 
-- Note, this repo is a **fork** from the original repo with added functionality to support **Multimodal Model Predictive Runtime Verification**.
+- Note, this repo is a **fork** from the original repo with added functionality to support [**Multimodal Model Predictive Runtime Verification**](https://temporallogic.org/research/MMPRV/index.html).
 
 - This repo is official implementation for [mmTransformer](https://github.com/decisionforce/mmTransformer) in pytorch. Currently, the core code of mmTransformer is implemented in the commercial project, we provide **inference code** of model with six trajectory propopals for your reference. 
 
@@ -47,7 +47,7 @@ otherwise:
 
 ### Preprocess the dataset (Not Required)
 
-The preprocessed dataset for the AGENT and AV are already included in the repo. Alternatively, you can process the data from scratch using following commands.
+The preprocessed dataset for the AGENT and AV are already included in the repo. Alternatively, you can process the data from scratch using following commands:
 
 1. Download the Argoverse validation dataset [here](https://www.argoverse.org/av1.html#download-link) (should be downloaded as forecasting_val_v1.1.tar.gz) and save it to `./data`.
 
@@ -120,14 +120,22 @@ Here we showcase the expected results on validation set for AGENT:
 
 2. To re-create the image below, run the following (Latex install is required):
 
-    python DisplayData.py
+        python DisplayData.py
 
 ![img](./figs/14986.png)
 
 3. One can visualize other scenes by adjusting DisplayData.py.
 
+## Pack data for import into Multimodal Model Predictive Runtime Verification
+
+1. To create the required trace files, run the following:
+
+        python PackData.py
+
+2. One can create different the appropriate trace files for different scenarios by adjusting PackData.py. Please view [this](https://github.com/aaurandt/MMPRV_R2U2) repo for more info on how to run [Multimodal Model Predictive Runtime Verification](https://temporallogic.org/research/MMPRV/index.html) on the R2U2 runtime verification engine.
+
 ## Citation
-If you find our work useful for your research, please consider citing the paper
+If you find our work useful for your research, please consider citing the original mmTransformer paper:
 ```
 @article{liu2021multimodal,
   title={Multimodal Motion Prediction with Stacked Transformers},

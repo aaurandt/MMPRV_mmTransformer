@@ -36,7 +36,6 @@ def viz_sequence(
     smoothen: bool = False,
 ):
 
-    x_agent, y_agent, x_av, y_av = 0.0, 0.0, 0.0, 0.0
     # Seq data
     city_name = df["CITY_NAME"].values[0]
 
@@ -130,12 +129,6 @@ def viz_sequence(
         if len(cor_x) == 50:
             final_x = cor_x[19]
             final_y = cor_y[19]
-            if object_type == "AGENT":
-                x_agent = final_x
-                y_agent = final_y
-            elif object_type == "AV":
-                x_av = final_x
-                y_av = final_y
         else:
             final_x = cor_x[-1]
             final_y = cor_y[-1]
@@ -189,4 +182,3 @@ def viz_sequence(
     #plt.axis("off")
     if show:
         plt.show()
-    return x_agent, y_agent, x_av, y_av
