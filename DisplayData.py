@@ -111,10 +111,10 @@ my_table.set_fontsize(16)
 
 plt.legend(fontsize=16, loc='upper left')
 # Edit the xlim and ylim to scale as desired
-plt.xlim(1740,1865)
-plt.ylim(370,455)
+# plt.xlim(1740,1865)
+# plt.ylim(370,455)
 plt.axis("off")
 ax = plt.gca()
 ax.set_aspect(1.0/ax.get_data_ratio(), adjustable='box')
-plt.savefig(os.path.join('./data/results/', csv_filename[:-4]+'.png')) 
+plt.savefig(os.path.join('./data/results/', csv_filename+'.png')) 
 plt.show()
